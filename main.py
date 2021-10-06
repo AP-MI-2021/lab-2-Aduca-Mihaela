@@ -14,8 +14,9 @@ def is_prime(n):
 
     for i in range(2, x//2 + 1):
         if n % i == 0:
-            return False
-   return True
+                return False
+        return True
+
 
     def get_largest_prime_below(n):
      """
@@ -39,25 +40,26 @@ def is_prime(n):
          """
          assert get_largest_prime_below(4) == 3
          assert get_largest_prime_below(7) == 5
-         assert get_largest_prime_below(2) is False.
-        
-        
+         assert get_largest_prime_below(2) is False
 
-  def is_palindrome(n)
+def is_palindrome(n):
     '''
         Verifica daca un numar dat este palindrom sau nu.
     :param n: intreg
     :return: Returneaza True daca numarul n este palindrom, sau va returna False in caz contrar.
     '''
-        x=n
-        ogl=0
-         while x:
-             ogl=ogl*10+x%10
-             x=x//10
+    ogl = 0
+    x = n
+    while x != 0:
+        ogl = ogl * 10 + cop % 10
+        x = x // 10
+    if ogl == n:
+        return True
+    else:
+        return False
+            
 
-        if ogl == n:
-            return True
-    return False
+
 
 
 def test_is_palindrome():
@@ -80,10 +82,9 @@ def main():
             else:
                 print("Numarul dat nu este palindrom.")
 
-         
+
     if __name__ == '__main__':
-        main()      
-        
+        main()
          
          
          
