@@ -1,3 +1,5 @@
+from datetime import date
+
 def is_prime(n):
     """
     Verifica daca un numar este prim sau nu.
@@ -38,6 +40,15 @@ def is_prime(n):
          assert get_largest_prime_below(4) == 3
          assert get_largest_prime_below(7) == 5
          assert get_largest_prime_below(2) is False.
+        
+        
+def get_age_in_days(birthday):
+    '''
+    Determina varsta unei persoane in zile.
+    :param birthday: numere intregi
+    :return: returneaza varsta unei persoane, in zile.
+    '''
+    today=date.today()        
          
          
          
