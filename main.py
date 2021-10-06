@@ -48,7 +48,14 @@ def get_age_in_days(birthday):
     :param birthday: numere intregi
     :return: returneaza varsta unei persoane, in zile.
     '''
-    today=date.today()        
+    today=date.today()      
+      birthday= today - birthday_date
+
+ def birthday_date(datan : str) :
+     '''
+     Functia converteste sirul in datetime.
+     
+     '''
          
          
          
