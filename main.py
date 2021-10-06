@@ -42,21 +42,7 @@ def is_prime(n):
          assert get_largest_prime_below(2) is False.
         
         
-//def get_age_in_days(birthday):
-    '''
-    Determina varsta unei persoane in zile.
-    :param birthday: numere intregi
-    :return: returneaza varsta unei persoane, in zile.
-    '''
-    today=date.today()      
-      birthday= today - birthday_date
 
- def birthday_date(datan : str) :
-     '''
-     Functia converteste sirul in datetime.
-     
-     '''
-        //
   def is_palindrome(n)
     '''
         Verifica daca un numar dat este palindrom sau nu.
