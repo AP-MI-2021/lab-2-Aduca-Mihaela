@@ -1,4 +1,7 @@
-from datetime import date
+def print_menu():
+    print("1. Verifica daca un numar este prim.")
+    print("2. Verifica daca un numar este palindrom.")
+    print("3. Iesire.")
 
 
 def is_prime(n):
@@ -7,52 +10,51 @@ def is_prime(n):
     :param n:numar natural
     :return:Returneaza True daca un numar este prim si False in caz contrar.
     """
-
-    if n < 2:
+    if n == 1:
         return False
     if n == 2:
         return True
-
-    for i in range(2, x // 2 + 1):
+    if n % 2 == 0:
+        return False
+    for i in range(3, n // 2 + 1, 2):
         if n % i == 0:
             return False
-        return True
+    return True
 
 
 def get_largest_prime_below(n):
     """
-
-    :param n:
-    :return:
+    Gaseste un nr prim mai mic decat un numar dat.
+    :param n: nr intreg
+    :return:un nr prim mai mic decat un numar dat.
     """
-
-    while n - 1 > 0:
-        if is_prime(n - 1):
-            return n - 1
-    n - 1
-    return False
+    nr_prim = n - 1
+    ok = False
+    if n <= 2:
+        return None
+    while not ok:
+        if is_prime(nr_prim):
+            ok = True
+            break
+        nr_prim = nr_prim - 1
+    return nr_prim
 
 
 def test_get_largest_prime_below():
-    """
-    Verifica daca functia functioneaza
-   :return:numar natural
-   """
-    assert get_largest_prime_below(4) == 3
-    assert get_largest_prime_below(7) == 5
-    assert get_largest_prime_below(2) is False
-
+    assert get_largest_prime_below(36) == 31
+    assert get_largest_prime_below(135) == 131
+    assert get_largest_prime_below(76) == 73
 
 def is_palindrome(n):
     """
-        Verifica daca un numar dat este palindrom sau nu.
+    Verifica daca un numar dat este palindrom sau nu.
     :param n: intreg
     :return: Returneaza True daca numarul n este palindrom, sau va returna False in caz contrar.
     """
     ogl = 0
     x = n
     while x != 0:
-        ogl = ogl * 10 + cop % 10
+        ogl = ogl * 10 + x % 10
         x = x // 10
     if ogl == n:
         return True
@@ -61,23 +63,33 @@ def is_palindrome(n):
 
 
 def test_is_palindrome():
-    assert is_palindrome(3223) is True
-    assert is_palindrome(6453) is False
-    assert is_palindrome(898) is True
-    assert is_palindrome(212) is True
-
-
-test_is_palindrome()
+    assert is_palindrome(717) == True
+    assert is_palindrome(9807) == False
+    assert is_palindrome(10401) == True
 
 
 def main():
-    while True:
-        print("1.Determina daca un numar dat este palindrom.")
+    test_get_largest_prime_below()
+    test_is_palindrome()
 
+    while True:
+        print_menu()
         optiune = input("Dati optiunea:")
+
         if optiune == "1":
-            numar = int(input("Dati numar:"))
-            if is_palindrome(numar):
+            numar=int(input("Dati un numar: "))
+            print(get_largest_prime_below(numar))
+        elif optiune == "2":
+            nr=input("introduceti nr: ")
+            if is_palindrome(nr):
                 print("Numarul dat este palindrom.")
             else:
                 print("Numarul dat nu este palindrom.")
+
+
+
+
+
+
+if __name__ == '__main__':
+    main()
