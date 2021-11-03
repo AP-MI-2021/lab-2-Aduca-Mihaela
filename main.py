@@ -52,10 +52,11 @@ def is_palindrome(n):
     :return: Returneaza True daca numarul n este palindrom, sau va returna False in caz contrar.
     """
     ogl = 0
-    x = n
-    while x != 0:
-        ogl = ogl * 10 + x % 10
-        x = x // 10
+    aux = n
+    while aux != 0:
+        cifra = aux % 10
+        ogl = ogl * 10 + cifra
+        aux = aux // 10
     if ogl == n:
         return True
     else:
@@ -63,9 +64,9 @@ def is_palindrome(n):
 
 
 def test_is_palindrome():
-    assert is_palindrome(717) == True
-    assert is_palindrome(9807) == False
-    assert is_palindrome(10401) == True
+    assert is_palindrome(131) == True
+    assert is_palindrome(222) == True
+    assert is_palindrome(214) == False
 
 
 def main():
@@ -74,17 +75,21 @@ def main():
 
     while True:
         print_menu()
-        optiune = input("Dati optiunea:")
+        optiune = input("Dati optiunea: ")
 
         if optiune == "1":
             numar=int(input("Dati un numar: "))
             print(get_largest_prime_below(numar))
         elif optiune == "2":
-            nr=input("introduceti nr: ")
+            nr=int(input("introduceti nr: "))
             if is_palindrome(nr):
                 print("Numarul dat este palindrom.")
             else:
                 print("Numarul dat nu este palindrom.")
+        elif optiune == "3":
+            break
+        else:
+            print("Optiune gresita! Reincercati: ")
 
 
 
