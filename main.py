@@ -1,7 +1,8 @@
 def print_menu():
     print("1. Verifica daca un numar este prim.")
     print("2. Verifica daca un numar este palindrom.")
-    print("3. Iesire.")
+    print("3. Verifica daca un numar este superprim.")
+    print("4. Iesire.")
 
 
 def is_prime(n):
@@ -68,10 +69,34 @@ def test_is_palindrome():
     assert is_palindrome(222) == True
     assert is_palindrome(214) == False
 
+def is_superprime(n):
+    '''
+    Determina daca un numar este superprim sau nu.
+    :param n:
+    :return: true daca numarul este supraprim si False in caz contrar.
+    '''
+    copie = n
+    verificare = 1
+    while copie:
+        if not is_prime(copie):
+            verificare = 0
+            break
+        copie=copie // 10
+    if verificare == 1:
+        return True
+    return False
+
+
+def test_is_superprime():
+    assert is_superprime(124) == False
+    assert is_superprime(1290) == False
+    assert is_superprime(239) == True
+    assert is_superprime(14) == False
 
 def main():
     test_get_largest_prime_below()
     test_is_palindrome()
+    test_is_superprime()
 
     while True:
         print_menu()
@@ -87,6 +112,12 @@ def main():
             else:
                 print("Numarul dat nu este palindrom.")
         elif optiune == "3":
+            nr1 = int(input("dati un nr: "))
+            if is_superprime(nr1):
+                print("Numarul dat este superprim.")
+            else:
+                print("Numarul dat nu este superprim.")
+        elif optiune == "4":
             break
         else:
             print("Optiune gresita! Reincercati: ")
